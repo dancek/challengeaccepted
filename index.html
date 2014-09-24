@@ -2,6 +2,7 @@
 
 <html>
 <head>
+  <meta charset="utf-8" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.3/angular.min.js"></script>
 </head>
@@ -9,8 +10,8 @@
 
 <body>
 
-  <div ng-app>
-    <div ng-ctrl="controller">
+  <div ng-app="a">
+    <div ng-controller="controller">
       <button ng-click="randomize()">PRESS HERE</button>
       <table>
         <tr ng-repeat="player in players">
@@ -25,7 +26,7 @@
   <script>
 
     !function() {
-      var app = angular.module([]);
+      var app = angular.module('a', []);
       var input = [
         'No boots',
         'No ultimate',
@@ -64,6 +65,7 @@
       ];
 
       app.controller('controller', function($scope) {
+
         $scope.players = [
           {color: 'blue', task: ''},
           {color: 'teal', task: ''},
@@ -79,7 +81,7 @@
 
         $scope.randomize = function() {
           for (var i = 0; i < 10; i++) {
-            $scope.players[i].task = input[Math.floor(Math.random() * input.length)];g
+            $scope.players[i].task = input[Math.floor(Math.random() * input.length)];
           }
         };
       });
