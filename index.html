@@ -10,16 +10,31 @@
     }
   </style>
 
+  <title>Challenge accepted!</title>
+
+  <style>
+    body {
+      background-color: #c4c4c4;
+    }
+    #main {
+      margin-top: 100px;
+      margin-left: 75px;
+    }
+    #challenges {
+      
+    }
+  </style>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.3/angular.min.js"></script>
 </head>
 
 
 <body>
 
-  <div ng-app="a">
+  <div id="main" ng-app="a">
     <div ng-controller="controller">
       <button ng-click="randomize()">PRESS HERE</button>
-      <table>
+      <table id="challenges">
         <tr ng-repeat="player in players">
           <td>{{player.color}}</td>
           <td>{{player.task}}</td>
