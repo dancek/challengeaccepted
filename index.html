@@ -40,6 +40,9 @@
           <td>{{player.task}}</td>
         </tr>
       </table>
+      
+      <small ng-click="editInput = !editInput">quick edit</small>
+      <textarea ng-show="editInput" ng-model="inputRows" ng-change="updateInput()"></textarea>
     </div>
   </div>
 
@@ -72,6 +75,12 @@
       ];
 
       app.controller('controller', function($scope) {
+        $scope.input = input;
+        $scope.editInput = false;
+        $scope.inputRows = input.join('\n');
+        $scope.updateInput = function() {
+          $scope.input = $scope.inputRows.split('\n');
+        }
 
         $scope.players = [
           {color: 'blue', task: ''},
@@ -88,7 +97,7 @@
 
         $scope.randomize = function() {
           for (var i = 0; i < 10; i++) {
-            $scope.players[i].task = input[Math.floor(Math.random() * input.length)];
+            $scope.players[i].task = $scope.input[Math.floor(Math.random() * $scope.input.length)];
           }
         };
       });
